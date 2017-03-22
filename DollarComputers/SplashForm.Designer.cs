@@ -28,8 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SplashForm));
+            this.SplashTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
+            // 
+            // SplashTimer
+            // 
+            this.SplashTimer.Enabled = true;
+            this.SplashTimer.Interval = 3000;
+            this.SplashTimer.Tick += new System.EventHandler(this.SplashTimer_Tick);
             // 
             // SplashForm
             // 
@@ -48,5 +56,7 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.Timer SplashTimer;
     }
 }

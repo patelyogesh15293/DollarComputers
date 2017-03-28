@@ -12,6 +12,7 @@ namespace DollarComputers
 {
     public partial class SplashForm : Form
     {
+        private StartForm myStartForm = new StartForm();
         public SplashForm()
         {
             InitializeComponent();
@@ -20,11 +21,11 @@ namespace DollarComputers
         private void SplashTimer_Tick(object sender, EventArgs e)
         {
             // Enabled timer
-            this.Enabled = false;
+            SplashTimer.Enabled = false;
             // Hide the splash form
             this.Hide();
             // Show selection form
-            Program.mySelectForm.Show();
+            myStartForm.Show();
         }
     }
 }

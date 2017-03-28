@@ -29,18 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StartForm));
-            this.productsTableAdapter1 = new DollarComputers.comp1004namesDataSetTableAdapters.productsTableAdapter();
             this.StartFormLabel = new System.Windows.Forms.Label();
             this.StartButton = new System.Windows.Forms.Button();
             this.ExitButton = new System.Windows.Forms.Button();
             this.SaveButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.openFileDialogBox = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // productsTableAdapter1
-            // 
-            this.productsTableAdapter1.ClearBeforeFill = true;
             // 
             // StartFormLabel
             // 
@@ -60,6 +56,7 @@
             this.StartButton.TabIndex = 2;
             this.StartButton.Text = "Start a New Order";
             this.StartButton.UseVisualStyleBackColor = true;
+            this.StartButton.Click += new System.EventHandler(this.StartButton_Click);
             // 
             // ExitButton
             // 
@@ -69,6 +66,7 @@
             this.ExitButton.TabIndex = 3;
             this.ExitButton.Text = "Exit";
             this.ExitButton.UseVisualStyleBackColor = true;
+            this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
             // SaveButton
             // 
@@ -78,6 +76,7 @@
             this.SaveButton.TabIndex = 4;
             this.SaveButton.Text = "Open a Saved Order";
             this.SaveButton.UseVisualStyleBackColor = true;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // pictureBox1
             // 
@@ -101,7 +100,7 @@
             this.Controls.Add(this.StartFormLabel);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "StartForm";
@@ -114,12 +113,11 @@
         }
 
         #endregion
-
-        private comp1004namesDataSetTableAdapters.productsTableAdapter productsTableAdapter1;
         private System.Windows.Forms.Label StartFormLabel;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button StartButton;
         private System.Windows.Forms.Button ExitButton;
         private System.Windows.Forms.Button SaveButton;
+        private System.Windows.Forms.OpenFileDialog openFileDialogBox;
     }
 }

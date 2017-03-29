@@ -68,8 +68,8 @@
             this.productsTableAdapter = new DollarComputers.comp1004namesDataSetTableAdapters.productsTableAdapter();
             this.SelectionLabel = new System.Windows.Forms.Label();
             this.SelectionTextBox = new System.Windows.Forms.TextBox();
-            this.CancelButton = new System.Windows.Forms.Button();
             this.NextButton = new System.Windows.Forms.Button();
+            this.CancelButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DollarComputerGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comp1004namesDataSet)).BeginInit();
@@ -126,8 +126,10 @@
             this.DollarComputerGridView.Location = new System.Drawing.Point(17, 36);
             this.DollarComputerGridView.Name = "DollarComputerGridView";
             this.DollarComputerGridView.ReadOnly = true;
+            this.DollarComputerGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DollarComputerGridView.Size = new System.Drawing.Size(943, 488);
             this.DollarComputerGridView.TabIndex = 1;
+            this.DollarComputerGridView.SelectionChanged += new System.EventHandler(this.DollarComputerGridView_SelectionChanged);
             // 
             // productIDDataGridViewTextBoxColumn
             // 
@@ -378,17 +380,6 @@
             this.SelectionTextBox.Size = new System.Drawing.Size(604, 22);
             this.SelectionTextBox.TabIndex = 3;
             // 
-            // CancelButton
-            // 
-            this.CancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CancelButton.Location = new System.Drawing.Point(772, 543);
-            this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(80, 31);
-            this.CancelButton.TabIndex = 4;
-            this.CancelButton.Text = "Cancel";
-            this.CancelButton.UseVisualStyleBackColor = true;
-            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
-            // 
             // NextButton
             // 
             this.NextButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -398,14 +389,26 @@
             this.NextButton.TabIndex = 5;
             this.NextButton.Text = "Next";
             this.NextButton.UseVisualStyleBackColor = true;
+            this.NextButton.Click += new System.EventHandler(this.NextButton_Click);
+            // 
+            // CancelButton
+            // 
+            this.CancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CancelButton.Location = new System.Drawing.Point(790, 542);
+            this.CancelButton.Name = "CancelButton";
+            this.CancelButton.Size = new System.Drawing.Size(78, 32);
+            this.CancelButton.TabIndex = 6;
+            this.CancelButton.Text = "Cancel";
+            this.CancelButton.UseVisualStyleBackColor = true;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click_1);
             // 
             // SelectForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(972, 586);
-            this.Controls.Add(this.NextButton);
             this.Controls.Add(this.CancelButton);
+            this.Controls.Add(this.NextButton);
             this.Controls.Add(this.SelectionTextBox);
             this.Controls.Add(this.SelectionLabel);
             this.Controls.Add(this.DollarComputerGridView);
@@ -434,7 +437,7 @@
         private comp1004namesDataSetTableAdapters.productsTableAdapter productsTableAdapter;
         private System.Windows.Forms.Label SelectionLabel;
         private System.Windows.Forms.TextBox SelectionTextBox;
-        private System.Windows.Forms.Button CancelButton;
+       // private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Button NextButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn productIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn costDataGridViewTextBoxColumn;
@@ -467,6 +470,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn mousttypeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn powerDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn webcamDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button CancelButton;
     }
 }
 

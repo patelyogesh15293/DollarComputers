@@ -14,10 +14,9 @@ namespace DollarComputers
     {
         public Form previousForm;
 
-        private ProductInfoForm myProductInfoForm = new ProductInfoForm();
+        ProductInfoForm myProductInfoForm = new ProductInfoForm();
         //Create a db context object of database
         private ProductsContext dbProductContext = new ProductsContext();
-        private product _selectedProduct;
 
         public SelectForm()
         {
@@ -63,12 +62,15 @@ namespace DollarComputers
         /// <param name="e"></param>
         private void DollarComputerGridView_SelectionChanged(object sender, EventArgs e)
         {
+            myProductInfoForm.previousForm = this;
+
             this.DollarComputerGridView.CurrentRow.Selected = true;
 
-            this._selectedProduct = (product)DollarComputerGridView.CurrentRow.DataBoundItem;
+            Program.computerProducts = (product)DollarComputerGridView.CurrentRow.DataBoundItem;
 
-            this.SelectionTextBox.Text = this._selectedProduct.manufacturer
-                + " " + this._selectedProduct.model + " " + "$" + this._selectedProduct.cost;
+            SelectionTextBox.Text = Program.computerProducts.manufacturer
+                + "   " + Program.computerProducts.model + "   " + "$" + 
+                Math.Round(Convert.ToDouble(Program.computerProducts.cost),2);
                 
         }
     }

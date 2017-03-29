@@ -374,11 +374,13 @@
             // 
             // SelectionTextBox
             // 
+            this.SelectionTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SelectionTextBox.Location = new System.Drawing.Point(146, 543);
             this.SelectionTextBox.Name = "SelectionTextBox";
             this.SelectionTextBox.ReadOnly = true;
-            this.SelectionTextBox.Size = new System.Drawing.Size(604, 22);
+            this.SelectionTextBox.Size = new System.Drawing.Size(604, 26);
             this.SelectionTextBox.TabIndex = 3;
+            this.SelectionTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // NextButton
             // 

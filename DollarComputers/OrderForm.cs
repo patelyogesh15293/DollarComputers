@@ -142,8 +142,15 @@ namespace DollarComputers
             WebcamTextBox.Text = Program.computerProducts.webcam;
             OSTextBox.Text = Program.computerProducts.OS;
 
+            //Calculate Total Amount of Computer
+            double price = Math.Round(Convert.ToDouble(Program.computerProducts.cost),2);
+            double calculateTax = Math.Round(price * 0.13,2);
+            double totalPrice =  price + calculateTax;
 
-
+            //Display all Amount in appropriate Textboxes
+            PriceTextBox.Text = "$" + price.ToString();
+            TaxTextBox.Text = "$" + calculateTax.ToString();
+            TotalTextBox.Text = "$" + totalPrice.ToString();
         }
     }
 }

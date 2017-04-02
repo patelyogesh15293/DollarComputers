@@ -43,8 +43,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::DollarComputers.Properties.Resources.SplashImage1;
-            this.ClientSize = new System.Drawing.Size(375, 213);
+            this.BackgroundImage = global::DollarComputers.Properties.Resources.splash1;
+            this.ClientSize = new System.Drawing.Size(376, 308);
             this.ControlBox = false;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

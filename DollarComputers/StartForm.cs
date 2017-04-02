@@ -54,42 +54,9 @@ namespace DollarComputers
         /// <param name="e"></param>
         private void SaveButton_Click(object sender, EventArgs e)
         {
-
-            DialogResult result;
-            string filename;
-
-            openFileDialogBox.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.* ";
-            result = openFileDialogBox.ShowDialog();
-
-            if (result == DialogResult.OK)
-            {
-                filename = openFileDialogBox.FileName;
-                
-                try
-                {
-                    this._reader = new StreamReader(filename);
-
-                    // check if we haven't entered file
-                    if (this._reader.Peek() != 1)
-                    {
-                        
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error writing file", "file error",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    this._reader.Close();
-                }
-                catch (Exception exception)
-                {
-                    Debug.WriteLine(exception.Message);
-
-                    MessageBox.Show("Error writing file", "file error",
-                      MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-
-            }
+            ProductInfoForm myProductForm = new ProductInfoForm();
+            this.Close();
+            myProductForm.Show();
         }
     }
 }

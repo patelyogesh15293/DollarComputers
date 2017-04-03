@@ -1,4 +1,12 @@
-﻿using System;
+﻿// Appllication Name:   Dollar Computer
+// Author's Name:       Yogeshkumar Patel
+// Student ID:          200334362
+// Date:                March 07, 2017
+// Description:         This application is shows different computers details for 
+//                      user and it make user to save their data and also provide 
+//                      facility for open previous record. 
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,10 +24,7 @@ namespace DollarComputers
     {
         //Create a db context object of database
         private ProductsContext dbProductContext = new ProductsContext();
-
-        //private variable for fetch product ID
-        private Int32 _productID;
-
+        
         private StreamWriter _writer;
         private StreamReader _reader;
         public SelectForm previousForm { get; set; }
@@ -35,11 +40,6 @@ namespace DollarComputers
         /// <param name="e"></param>
         private void ProductInfoForm_Load(object sender, EventArgs e)
         {
-            if (Program.computerProducts.productID == 0)
-            {
-                this.Show();
-                openToolStripMenuItem_Click(sender, e);
-            }
             // Populate data of product section
             IDTextBox.Text = Program.computerProducts.productID.ToString();
             ConditionTextBox.Text = Program.computerProducts.condition;
@@ -117,19 +117,23 @@ namespace DollarComputers
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // Declare variable for dialogresult
             DialogResult result;
             string filename;
 
+            // Filter string for product save data
             productSaveFileDialog.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.* ";
             productSaveFileDialog.InitialDirectory = Directory.GetCurrentDirectory();
 
-            result = productSaveFileDialog.ShowDialog();
+            result = productSaveFileDialog.ShowDialog(); // store value in local variable 
 
+            // If condition for checking dialog result OK or not
             if(result == DialogResult.OK)
             {
                 filename = productSaveFileDialog.FileName;
                 try
                 {
+                    // user _write value for right data
                     this._writer = new StreamWriter(filename,true);
                     
                     _writer.WriteLine(IDTextBox.Text);
@@ -149,7 +153,7 @@ namespace DollarComputers
                     _writer.WriteLine(CPUSpeedTextBox.Text);
                     _writer.WriteLine(WebcamTextBox.Text);
 
-                    this._writer.Close();
+                    this._writer.Close(); // close writer stream
 
                     MessageBox.Show("You got save your data", "sucess",
                          MessageBoxButtons.OK, MessageBoxIcon.None);
@@ -169,11 +173,13 @@ namespace DollarComputers
             DialogResult result;
             string filename;
 
+            // Filter open dialog result
             productOpenFileDialog.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.* ";
             productOpenFileDialog.InitialDirectory = Directory.GetCurrentDirectory();
 
             result = productOpenFileDialog.ShowDialog();
 
+            // IF condition foropen a file
             if(result == DialogResult.OK)
             {
                 filename = productOpenFileDialog.FileName;
@@ -181,8 +187,10 @@ namespace DollarComputers
                 {
                     this._reader = new StreamReader(filename);
 
+                    // check if we haven't entered file
                     if (_reader.Peek() != -1)
                     {
+                        // Read all data from saved file
                         IDTextBox.Text = this._reader.ReadLine();
                         ConditionTextBox.Text = this._reader.ReadLine();
                         CostTextBox.Text = this._reader.ReadLine();
@@ -200,7 +208,6 @@ namespace DollarComputers
                         CPUSpeedTextBox.Text = this._reader.ReadLine();
                         WebcamTextBox.Text = this._reader.ReadLine();
 
-                        _productID = Convert.ToInt32(IDTextBox.Text);
                     }
                     else
                     {
@@ -218,9 +225,6 @@ namespace DollarComputers
                       MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
-                Program.computerProducts = (from product in dbProductContext.products
-                                            where product.productID == _productID
-                                            select product).FirstOrDefault();
                 //try
                 //{
                 //    Program.computerProducts = (from product in dbProductContext.products
